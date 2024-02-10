@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="html.css">
 </head>
 <body>
-<nav>
+<nav id="top">
     <ul>
         <li><img src="https://fircm.github.io/main/LOGO.png" alt="请刷新"></li>
         <li><a class="img" href="https://fircm.github.io/main/">主页</a></li>
@@ -17,3 +17,26 @@
 <p class="nav">你好！能找到这里，想必你就是那一位了吧。</p>
 </body>
 </html>
+<script>
+    let topNav = document.getElementById('top');
+    let opa = 1;
+    window.addEventListener('scroll', function(){
+        if (window.scrollY === 0) {
+            let count1 = setInterval(function(){
+                opa += 0.02;
+                topNav.style.opacity = opa;
+                if (opa >= 1) {
+                    clearInterval(count1);
+                }
+            }, 10);
+        }else{
+            let count2 = setInterval(function(){
+                opa -= 0.02;
+                topNav.style.opacity = opa;
+                if (opa <= 0.02) {
+                    clearInterval(count2);
+                }
+            }, 10);
+        }
+    })
+</script>
